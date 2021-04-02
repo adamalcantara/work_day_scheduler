@@ -6,14 +6,21 @@ $('.saveBtn').on('click', function (){
     var textTime = $(this).parent().attr('id');
     console.log(textValue);
     console.log(textTime);
+    localStorage.setItem(textValue, textTime);
 })
 
 })
 
 //Use moment to put the time on the page
 var today = moment ();
-$("currentDay").text(today.format("MMM Do, YYYY"));
+$("#currentDay").text(today.format("MMM Do, YYYY"));
 console.log(today);
+
+var currentHour = moment().format("HH");
+var blockHour = $(".container").children().siblings();
+
+console.log(currentHour);
+console.log(blockHour);
 
 //Moment reacts with the elements in column 1 to determine what color the column should be based on the time of day
 //Colors of the columns (styling) change based on what time of day it is
