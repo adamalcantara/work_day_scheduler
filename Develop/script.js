@@ -11,8 +11,6 @@ $(document).ready(function () {
         localStorage.setItem(textValue, textTime);
     })
 
-
-
 //Use moment to put the time on the page
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
@@ -47,3 +45,37 @@ function currentTime() {
 currentTime();
 
 })
+
+//function to clear the localStorage, and set all the boxes to empty
+function clearAll () {
+    localStorage.clear();
+    $("#09 .description").val("");
+    $("#10 .description").val("");
+    $("#11 .description").val("");
+    $("#12 .description").val("");
+    $("#13 .description").val("");
+    $("#14 .description").val("");
+    $("#15 .description").val("");
+    $("#16 .description").val("");
+    $("#17 .description").val("");
+}
+
+//set the variable for the clear button and get it by the ID
+var clearBtn = document.getElementById("clear");
+//call the clearAll function on the click of the clearBtn
+clearBtn.addEventListener("click", clearAll);
+
+function init() {
+//Take all of the items from the localStorage and put them back on the page upon page load
+$("#09 .description").val(localStorage.getItem("09"));
+$("#10 .description").val(localStorage.getItem("10"));
+$("#11 .description").val(localStorage.getItem("11"));
+$("#12 .description").val(localStorage.getItem("13"));
+$("#14 .description").val(localStorage.getItem("14"));
+$("#15 .description").val(localStorage.getItem("15"));
+$("#16 .description").val(localStorage.getItem("16"));
+$("#17 .description").val(localStorage.getItem("17"));
+}
+
+
+init();
