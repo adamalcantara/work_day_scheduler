@@ -7,13 +7,14 @@ $('.saveBtn').on('click', function (){
     console.log(textValue);
     console.log(textTime);
 
-    localStorage.setItem(textValue, textTime);
+    localStorage.setItem(textValue, textTime, JSON.parse(textValue));
 })
 
 })
 
 function saveOnPage () {
-    
+    var saved = JSON.parse(localStorage.getItem(textValue));
+    console.log(saved);
 }
 
 //Use moment to put the time on the page
