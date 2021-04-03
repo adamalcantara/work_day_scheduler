@@ -1,44 +1,40 @@
-$(document).ready(function() {
-    
-$('.saveBtn').on('click', function (){
-    console.log("click button")
-    var textValue = $(this).siblings('.description').val();
-    var textTime = $(this).parent().attr('id');
-    console.log(textValue);
-    console.log(textTime);
+$(document).ready(function () {
 
-    localStorage.setItem(textValue, textTime, JSON.parse(textValue));
+    $('.saveBtn').on('click', function () {
+        console.log("click button")
+        var textTime = $(this).siblings('.description').val();
+        var textValue = $(this).parent().attr('id');
+        console.log(textValue);
+        console.log(textTime);
+
+        localStorage.setItem(textValue, textTime);
+    })
+
 })
-
-})
-
-function saveOnPage () {
-    var saved = JSON.parse(localStorage.getItem(textValue));
-    console.log(saved);
-}
 
 //Use moment to put the time on the page
-var today = moment ();
+var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
-console.log(today);
 
-//set a variable for the current hour so that it can be compared to the rows
-var currentHour = moment().hour();
+//variable to set the time
+function currentTime() {
+    //set a variable for the current hour so that it can be compared to the rows
+    var currentHour = moment().hour();
+    console.log(currentHour);
 
-// console.log(currentHour);
+    $(".time-blocks").each(function () {
+        var blockHour = ($(this).attr('id'));
 
+        if (blockHour < currentHour) {
+            $(this).addClass("past");
+        }
+        if (blockHour === currentHour) {
+            $(this).addClass("present");
+        }
+        if (blockHour > currentHour) {
+            $(this).addClass("future");
+        }
+    })
+}
 
-//get the id so that it can be compared to the current hour
-var blockHour = $('.container').children().attr('id');
-
-// console.log(blockHour);
-
-
-
-
-
-
-
-//Moment reacts with the elements in column 1 to determine what color the column should be based on the time of day
-//Colors of the columns (styling) change based on what time of day it is
-//When a user enters a line of text in the box, it can be saved to LocalStorage by using the save button
+currentTime();
