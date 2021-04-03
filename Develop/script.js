@@ -31,7 +31,7 @@ function currentTime() {
             $(this).children().eq(1).addClass("past");
         }
         //add the present class if the block hour is equal to the current hour
-        if (blockHour === currentHour) {
+        if (blockHour == currentHour) {
             $(this).children().eq(1).addClass("present");
         }
         //add the future class if the block hour is more than the current hour
