@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 //Use moment to put the time on the page
 var today = moment();
-$("#currentDay").text(today.format("MMM Do, YYYY"));
+$("#currentDay").text(today.format("MMMM Do, YYYY"));
 
 //variable to set the time
 function currentTime() {
@@ -28,15 +28,15 @@ function currentTime() {
 
         //add the past class if the block hour is less than the current time
         if (blockHour < currentHour) {
-            $(this).addClass("past");
+            $(this).children().eq(1).addClass("past");
         }
         //add the present class if the block hour is equal to the current hour
         if (blockHour === currentHour) {
-            $(this).addClass("present");
+            $(this).children().eq(1).addClass("present");
         }
         //add the future class if the block hour is more than the current hour
         if (blockHour > currentHour) {
-            $(this).addClass("future");
+            $(this).children().eq(1).addClass("future");
         }
     })
 }
