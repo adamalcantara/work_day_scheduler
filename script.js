@@ -57,7 +57,7 @@ function clearAll () {
     $("#14 .description").val("");
     $("#15 .description").val("");
     $("#16 .description").val("");
-    $("#17 .description").val("");
+    $("#17 .description").val("");zz
 }
 
 //set the variable for the clear button and get it by the ID
