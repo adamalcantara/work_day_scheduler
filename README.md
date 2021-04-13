@@ -1,5 +1,9 @@
 ## Work Day Scheduler
 
+https://adamalcantara.github.io/work_day_scheduler/
+
+Built with HTML, CSS, and JavaScript.
+
 Use this schedule creator to make your schedule for the day!  You can reference it throughout the day on your computer because the items will be stored in the localStorage on your computer.
 
 The current hour will be shown in RED
